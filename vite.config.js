@@ -278,7 +278,7 @@ logger.error = (msg, options) => {
 }
 
 export default defineConfig({
-	base: '/',
+	base: process.env.NODE_ENV === 'production' ? '/cangurufilmes/' : '/',
 	customLogger: logger,
 	plugins: [
 		...(isDev ? [inlineEditPlugin(), editModeDevPlugin(), iframeRouteRestorationPlugin(), selectionModePlugin()] : []),
